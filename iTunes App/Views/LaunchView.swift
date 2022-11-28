@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct LaunchView: View {
-//    @EnvironmentObject var network: Network
     
     var body: some View {
         VStack {
-            AlbumListView()
+            AlbumSearchView()
         }
     }
 }

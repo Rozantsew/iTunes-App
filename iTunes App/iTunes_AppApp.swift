@@ -12,7 +12,6 @@ struct iTunes_AppApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchView()
-//                .environmentObject(Network())
         }
     }
 }
