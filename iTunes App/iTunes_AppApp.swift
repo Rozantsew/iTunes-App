@@ -11,7 +11,8 @@ import SwiftUI
 struct iTunes_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
+//                .environmentObject(Network())
         }
     }
 }

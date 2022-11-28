@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LaunchView: View {
+//    @EnvironmentObject var network: Network
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Text("Initial commit pushed")
+            AlbumListView()
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LaunchView()
     }
 }
