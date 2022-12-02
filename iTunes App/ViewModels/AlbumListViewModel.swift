@@ -14,23 +14,14 @@ import Combine
 
 class AlbumListViewModel: ObservableObject {
     
-    enum State: Comparable {
-        case good
-        case isLoading
-        case loadedAll
-        case error(String)
-    }
-    
     @Published var searchTerm: String = ""
     @Published var albums: [Album] = [Album]()
-    @Published var state: State = .good {
-        didSet {
-            print("state changed to \(state)")
-        }
-    }
+    @Published var state: FetchState = .good 
     
     let limit: Int = 20
     var page: Int = 0
+    
+    let service = APIService()
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -39,6 +30,8 @@ class AlbumListViewModel: ObservableObject {
         $searchTerm
             .dropFirst()
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+            // Sink is the code receives data and completion events
+            // or errors from a publisher and deals with them.
             .sink { [ weak self] term in
                 self?.state = .good
                 self?.albums = []
@@ -46,50 +39,37 @@ class AlbumListViewModel: ObservableObject {
         }.store(in: &subscriptions)
     }
     
-    // This function will load more albums
     func loadMore() {
         fetchAlbums(for: searchTerm)
     }
     
-    func fetchAlbums(for searchTearm: String) {
+    func fetchAlbums(for searchTerm: String) {
         
-        // Check if there is a seach bar is empty
-        guard !searchTearm.isEmpty else { return }
+        guard !searchTerm.isEmpty else {
+            return
+        }
         
-        guard state == State.good else { return }
+        guard state == FetchState.good else {
+            return
+        }
         
-        let offset = page * limit
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(searchTearm)&entity=album&\(limit)&offset=\(page)") else { return }
-        
-        print("start fetching data for \(searchTearm)")
         state = .isLoading
         
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            
-            if let error = error {
-                print("Url session error: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.state = .error("Could not load: \(error.localizedDescription)")
-                }
-            } else if let data = data {
-                
-                do {
-                    let result = try JSONDecoder().decode(AlbumResult.self, from: data)
-                    DispatchQueue.main.async {
-                        for album in result.results {
-                            self?.albums.append(album)
-                        }
-                        self?.page += 1
-                        self?.state = (result.results.count == self?.limit) ? .good : .loadedAll
+        service.fetchAlbums(searchTerm: searchTerm, page: page, limit: limit ) { [weak self ] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let results):
+                    for album in results.results {
+                        self?.albums.append(album)
                     }
-                
-                } catch {
-                    print("Error: \(error)")
-                    DispatchQueue.main.async {
-                        self?.state = .error("Could not get data: \(error.localizedDescription)")
-                    }
+                    self?.page += 1
+                    self?.state = (results.results.count == self?.limit) ? .good : .loadedAll
+                    print("fetched \(results.resultCount)")
+                    
+                case .failure(let error):
+                    self?.state = .error("Could not load \(error.localizedDescription)")
                 }
             }
-        }.resume()
-   }
+        }
+    }
 }

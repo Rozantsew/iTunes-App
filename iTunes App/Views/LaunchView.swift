@@ -10,8 +10,16 @@ import SwiftUI
 struct LaunchView: View {
     
     var body: some View {
-        VStack {
+        TabView {
             AlbumSearchView()
+                .tabItem {
+                    Label("Albums", systemImage: "music.note")
+                }
+            
+            MovieSearchView()
+                .tabItem {
+                    Label("Movies", systemImage: "tv")
+                }
         }
     }
 }

@@ -1,21 +1,23 @@
 //
-//  AlbumPlaceholderView.swift
+//  HomePlaceholderView.swift
 //  iTunes App
 //
-//  Created by Mykhailo Rozantsev on 28/11/2022.
+//  Created by Mykhailo Rozantsev on 01/12/2022.
 //
-
+//
 import SwiftUI
 
-struct AlbumPlaceholderView: View {
+struct HomePlaceholderView: View {
     
     @Binding var searchTerm: String
     let suggestions = ["Rammstein", "cry to me", "maneskin"]
     
     var body: some View {
         VStack {
+            // Title
             Text("Trending")
                 .font(.title)
+            
             ForEach(suggestions, id: \.self) { sugestion in
                 Button {
                     searchTerm = sugestion
@@ -27,5 +29,4 @@ struct AlbumPlaceholderView: View {
         }
     }
 }
-
 

@@ -10,26 +10,32 @@ import Foundation
 
 // MARK: - SongResult
 struct SongResult: Codable {
-    let resultCount: Int?
-    let results: [Song]?
+    let resultCount: Int
+    let results: [Song]
 }
 
 // MARK: - Result
 struct Song: Codable {
-    let wrapperType, kind: String?
-    let artistID, collectionID, trackID: Int?
-    let artistName, collectionName, trackName, collectionCensoredName: String?
-    let trackCensoredName: String?
-    let artistViewURL, collectionViewURL, trackViewURL: String?
-    let previewURL: String?
-    let artworkUrl30, artworkUrl60, artworkUrl100: String?
-    let collectionPrice, trackPrice: Double?
-    let releaseDate: Date?
-    let collectionExplicitness, trackExplicitness: String?
-    let discCount, discNumber, trackCount, trackNumber: Int?
-    let trackTimeMillis: Int?
-    let country, currency, primaryGenreName: String?
-    let isStreamable: Bool?
+    let wrapperType, kind: String
+    let artistID: Int
+    let collectionID: Int?
+    let trackID: Int
+    let artistName, collectionName, trackName, collectionCensoredName: String
+    let trackCensoredName: String
+    let artistViewURL, collectionViewURL, trackViewURL: String
+    let previewURL: String
+    let artworkUrl30, artworkUrl60, artworkUrl100: String
+    let collectionPrice, trackPrice: Double
+    let releaseDate: Date
+    let collectionExplicitness, trackExplicitness: String
+    let discCount, discNumber, trackCount, trackNumber: Int
+    let trackTimeMillis: Int
+    let country, currency, primaryGenreName: String
+    let isStreamable: Bool
+    
+    var id:Int {
+        return trackID
+    }
 
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind

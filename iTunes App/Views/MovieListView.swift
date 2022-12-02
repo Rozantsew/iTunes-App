@@ -1,21 +1,22 @@
 //
-//  AlbumListView.swift
+//  MovieListView.swift
 //  iTunes App
 //
-//  Created by Mykhailo Rozantsev on 25/11/2022.
+//  Created by Mykhailo Rozantsev on 01/12/2022.
 //
+
 
 import SwiftUI
 
-struct AlbumListView: View {
+struct MovieListView: View {
     
-    @ObservedObject var viewModel: AlbumListViewModel
+    @ObservedObject var viewModel: MovieListViewModel
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.albums) { album in
-                    Text(album.collectionName)
+                ForEach(viewModel.movies) { movie in
+                    Text(movie.trackName)
                 }
                 
                 switch viewModel.state {
@@ -42,10 +43,8 @@ struct AlbumListView: View {
     }
 }
 
-
-
-struct AlbumListView_Previews: PreviewProvider {
+struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumListView(viewModel: AlbumListViewModel())
+        MovieListView(viewModel: MovieListViewModel())
     }
 }

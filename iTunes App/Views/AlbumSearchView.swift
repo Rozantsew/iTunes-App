@@ -13,9 +13,9 @@ struct AlbumSearchView: View {
     
     var body: some View {
         NavigationView {
-            Group {
+            VStack {
                 if viewModel.searchTerm.isEmpty {
-                    AlbumPlaceholderView(searchTerm: $viewModel.searchTerm)
+                    HomePlaceholderView(searchTerm: $viewModel.searchTerm)
                 } else {
                     AlbumListView(viewModel: viewModel)
                 }
@@ -24,9 +24,8 @@ struct AlbumSearchView: View {
             .navigationTitle("Search Album")
         }
     }
+    
 }
-
- 
 
 struct AlbumSearchView_Previews: PreviewProvider {
     static var previews: some View {
