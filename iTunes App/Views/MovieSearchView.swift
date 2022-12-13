@@ -12,14 +12,14 @@ struct MovieSearchView: View {
     @StateObject var viewModel = MovieListViewModel()
     
     var body: some View {
-        NavigationView {
+        
             
             Group {
                     MovieListView(viewModel: viewModel)
             }
             .searchable(text: $viewModel.searchTerm)
             .navigationTitle("Search Movies")
-        }
+        
     }
 }
 

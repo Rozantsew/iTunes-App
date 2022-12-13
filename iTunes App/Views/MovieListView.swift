@@ -13,7 +13,7 @@ struct MovieListView: View {
     @ObservedObject var viewModel: MovieListViewModel
     
     var body: some View {
-        NavigationView {
+        
             List {
                 ForEach(viewModel.movies) { movie in
                     Text(movie.trackName)
@@ -39,7 +39,7 @@ struct MovieListView: View {
                 }
             }
             .listStyle(.plain)
-        }
+        
     }
 }
 

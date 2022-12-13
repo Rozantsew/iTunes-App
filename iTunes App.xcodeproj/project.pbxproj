@@ -10,6 +10,7 @@
 		F52055EE2948EFCA00667A31 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52055ED2948EFCA00667A31 /* SearchView.swift */; };
 		F52055F02948F0CD00667A31 /* EntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52055EF2948F0CD00667A31 /* EntityType.swift */; };
 		F52055F22948F54800667A31 /* SearchAllListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52055F12948F54800667A31 /* SearchAllListView.swift */; };
+		F52055F62948FD2600667A31 /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52055F52948FD2600667A31 /* SongListView.swift */; };
 		F53A07412935066E000BBA11 /* AlbumSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07402935066E000BBA11 /* AlbumSearchView.swift */; };
 		F53A074629366AFD000BBA11 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A074529366AFD000BBA11 /* APIError.swift */; };
 		F53A07482937FC3F000BBA11 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07472937FC3F000BBA11 /* APIService.swift */; };
@@ -37,6 +38,7 @@
 		F52055ED2948EFCA00667A31 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F52055EF2948F0CD00667A31 /* EntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityType.swift; sourceTree = "<group>"; };
 		F52055F12948F54800667A31 /* SearchAllListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllListView.swift; sourceTree = "<group>"; };
+		F52055F52948FD2600667A31 /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
 		F53A07402935066E000BBA11 /* AlbumSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchView.swift; sourceTree = "<group>"; };
 		F53A074529366AFD000BBA11 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		F53A07472937FC3F000BBA11 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		F53A075029390B3F000BBA11 /* SongsView */ = {
 			isa = PBXGroup;
 			children = (
+				F52055F52948FD2600667A31 /* SongListView.swift */,
 			);
 			name = SongsView;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				F53A07482937FC3F000BBA11 /* APIService.swift in Sources */,
 				F555FAE0293106AD00DA5FB7 /* Movie.swift in Sources */,
 				F52055F22948F54800667A31 /* SearchAllListView.swift in Sources */,
+				F52055F62948FD2600667A31 /* SongListView.swift in Sources */,
 				F555FAD82930101D00DA5FB7 /* NetworkRequest.swift in Sources */,
 				F53A075629390C77000BBA11 /* HomePlaceholderView.swift in Sources */,
 			);

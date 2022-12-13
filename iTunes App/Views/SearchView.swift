@@ -12,6 +12,10 @@ struct SearchView: View {
     @State private var searchTerm: String = ""
     @State private var selectedEntityType = EntityType.all
     
+    @StateObject private var albumListViewModel = AlbumListViewModel()
+    @StateObject private var songListViewModel = SongListViewModel()
+    @StateObject private var movieListViewModel = MovieListViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -25,12 +29,42 @@ struct SearchView: View {
                 .padding(.horizontal)
                 
                 Divider()
-                
+                if searchTerm.count == 0 {
+                    HomePlaceholderView(searchTerm: $searchTerm)
+                } else {
+                    switch selectedEntityType {
+                    case .all:
+                        SearchAllListView(
+                            albumListViewModel: albumListViewModel,
+                            songListViewModel: songListViewModel,
+                            movieListViewModel: movieListViewModel)
+                    case .album:
+                        AlbumListView(viewModel: albumListViewModel)
+                            .onAppear{
+                                albumListViewModel.searchTerm = searchTerm
+                            }
+                    case .song:
+                        SongListView(viewModel: songListViewModel)
+                            .onAppear {
+                                songListViewModel.searchTerm = searchTerm
+                            }
+                    case .movie:
+                        MovieListView(viewModel: movieListViewModel)
+                            .onAppear {
+                                movieListViewModel.searchTerm = searchTerm
+                            }
+                    }
+                }
                 Spacer()
             }
             .searchable(text: $searchTerm)
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onChange(of: searchTerm) { newWalue in
+            albumListViewModel.searchTerm = newWalue
+            songListViewModel.searchTerm = newWalue
+            movieListViewModel.searchTerm = newWalue
         }
     }
 }

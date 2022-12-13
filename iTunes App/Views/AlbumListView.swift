@@ -12,7 +12,7 @@ struct AlbumListView: View {
     @ObservedObject var viewModel: AlbumListViewModel
     
     var body: some View {
-        NavigationView {
+        
             List {
                 ForEach(viewModel.albums) { album in
                     Text(album.collectionName)
@@ -38,7 +38,7 @@ struct AlbumListView: View {
                 }
             }
             .listStyle(.plain)
-        }
+        
     }
 }
 

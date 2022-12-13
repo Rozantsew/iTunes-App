@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct SearchAllListView: View {
+    
+    @ObservedObject var albumListViewModel: AlbumListViewModel
+    @ObservedObject var songListViewModel: SongListViewModel
+    @ObservedObject var movieListViewModel: MovieListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Search all")
     }
 }
 
-struct SearchAllListView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchAllListView()
-    }
-}
+//struct SearchAllListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchAllListView()
+//    }
+//}
