@@ -32,6 +32,11 @@
 		F579755E292D23F100DA89FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F579755D292D23F100DA89FF /* Preview Assets.xcassets */; };
 		F5797566292D2CD300DA89FF /* albumData.json in Resources */ = {isa = PBXBuildFile; fileRef = F5797565292D2CD300DA89FF /* albumData.json */; };
 		F5797571292E7AC300DA89FF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5797570292E7AC300DA89FF /* Network.swift */; };
+		F5904842294A0B7B00D9CECE /* ImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5904841294A0B7B00D9CECE /* ImageLoadingView.swift */; };
+		F5904844294A0D4A00D9CECE /* SongRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5904843294A0D4A00D9CECE /* SongRowView.swift */; };
+		F5904847294A0EAA00D9CECE /* BuyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5904846294A0EAA00D9CECE /* BuyButtonStyle.swift */; };
+		F5904849294A39F200D9CECE /* AlbumRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5904848294A39F200D9CECE /* AlbumRowView.swift */; };
+		F590484B294A3DE400D9CECE /* BuyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F590484A294A3DE400D9CECE /* BuyButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,11 @@
 		F579755D292D23F100DA89FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F5797565292D2CD300DA89FF /* albumData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = albumData.json; sourceTree = "<group>"; };
 		F5797570292E7AC300DA89FF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		F5904841294A0B7B00D9CECE /* ImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingView.swift; sourceTree = "<group>"; };
+		F5904843294A0D4A00D9CECE /* SongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRowView.swift; sourceTree = "<group>"; };
+		F5904846294A0EAA00D9CECE /* BuyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonStyle.swift; sourceTree = "<group>"; };
+		F5904848294A39F200D9CECE /* AlbumRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRowView.swift; sourceTree = "<group>"; };
+		F590484A294A3DE400D9CECE /* BuyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F555FAE329310EF500DA5FB7 /* AlbumListView.swift */,
+				F5904848294A39F200D9CECE /* AlbumRowView.swift */,
 				F53A07402935066E000BBA11 /* AlbumSearchView.swift */,
 			);
 			name = AlbumViews;
@@ -105,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F52055F52948FD2600667A31 /* SongListView.swift */,
+				F5904843294A0D4A00D9CECE /* SongRowView.swift */,
 			);
 			name = SongsView;
 			sourceTree = "<group>";
@@ -133,6 +145,8 @@
 				F5797569292D2D5000DA89FF /* ViewModels */,
 				F5797568292D2D4800DA89FF /* Models */,
 				F5797564292D2CB400DA89FF /* Data */,
+				F5904845294A0E8400D9CECE /* Styling */,
+				F590484C294A440500D9CECE /* Helper */,
 				F579755A292D23F100DA89FF /* Assets.xcassets */,
 				F579755C292D23F100DA89FF /* Preview Content */,
 			);
@@ -184,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				F5797558292D23F000DA89FF /* LaunchView.swift */,
-				F53A075529390C77000BBA11 /* HomePlaceholderView.swift */,
 				F52055EC2948EF9700667A31 /* SearchViews */,
 				F53A074F29390B2A000BBA11 /* MovieViews */,
 				F53A075029390B3F000BBA11 /* SongsView */,
@@ -200,6 +213,24 @@
 				F555FAD72930101D00DA5FB7 /* NetworkRequest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F5904845294A0E8400D9CECE /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				F5904846294A0EAA00D9CECE /* BuyButtonStyle.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		F590484C294A440500D9CECE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F53A075529390C77000BBA11 /* HomePlaceholderView.swift */,
+				F5904841294A0B7B00D9CECE /* ImageLoadingView.swift */,
+				F590484A294A3DE400D9CECE /* BuyButtonView.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,21 +308,26 @@
 				F52055EE2948EFCA00667A31 /* SearchView.swift in Sources */,
 				F555FADE293106A500DA5FB7 /* Song.swift in Sources */,
 				F53A075229390B6C000BBA11 /* MovieSearchView.swift in Sources */,
+				F590484B294A3DE400D9CECE /* BuyButtonView.swift in Sources */,
 				F5797559292D23F000DA89FF /* LaunchView.swift in Sources */,
+				F5904847294A0EAA00D9CECE /* BuyButtonStyle.swift in Sources */,
 				F53A074A293907A7000BBA11 /* SongListViewModel.swift in Sources */,
 				F555FAE429310EF500DA5FB7 /* AlbumListView.swift in Sources */,
 				F53A074C2939081B000BBA11 /* FetchState.swift in Sources */,
 				F555FADA2930E0C200DA5FB7 /* AlbumListViewModel.swift in Sources */,
+				F5904842294A0B7B00D9CECE /* ImageLoadingView.swift in Sources */,
 				F53A074629366AFD000BBA11 /* APIError.swift in Sources */,
 				F52055F02948F0CD00667A31 /* EntityType.swift in Sources */,
 				F5797557292D23F000DA89FF /* iTunes_AppApp.swift in Sources */,
 				F5797571292E7AC300DA89FF /* Network.swift in Sources */,
 				F53A075429390C61000BBA11 /* MovieListView.swift in Sources */,
+				F5904844294A0D4A00D9CECE /* SongRowView.swift in Sources */,
 				F555FADC2930E31800DA5FB7 /* Album.swift in Sources */,
 				F53A074E29390A0E000BBA11 /* MovieListViewModel.swift in Sources */,
 				F53A07482937FC3F000BBA11 /* APIService.swift in Sources */,
 				F555FAE0293106AD00DA5FB7 /* Movie.swift in Sources */,
 				F52055F22948F54800667A31 /* SearchAllListView.swift in Sources */,
+				F5904849294A39F200D9CECE /* AlbumRowView.swift in Sources */,
 				F52055F62948FD2600667A31 /* SongListView.swift in Sources */,
 				F555FAD82930101D00DA5FB7 /* NetworkRequest.swift in Sources */,
 				F53A075629390C77000BBA11 /* HomePlaceholderView.swift in Sources */,

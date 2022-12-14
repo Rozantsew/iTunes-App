@@ -18,8 +18,3 @@ struct SearchAllListView: View {
     }
 }
 
-//struct SearchAllListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchAllListView()
-//    }
-//}

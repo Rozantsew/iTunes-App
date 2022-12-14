@@ -77,3 +77,8 @@ class SongListViewModel: ObservableObject {
     }
     
 }
+
+//func example() -> SongListViewModel {
+//    let vm = SongListViewModel()
+//    vm.songs = []
+//}
