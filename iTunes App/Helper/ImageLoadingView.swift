@@ -10,18 +10,30 @@ import SwiftUI
 struct ImageLoadingView: View {
 
     let urlString: String
-    let size: CGFloat
+    let height: CGFloat
+    let width: CGFloat
     
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { image in
-            image
-                .resizable()
-                .border(Color(white: 0.5))
+        
+        AsyncImage(url: URL(string: urlString)) { phase in
             
-        } placeholder: {
-            ProgressView()
+            switch phase {
+            case .empty:
+                ProgressView()
+                    .frame(width: width, height: height)
+            case .failure(_):
+                Color.gray
+                    .frame(width: width, height: height)
+            case .success(let image):
+                image
+                    .resizable()
+                    .border(Color(white: 0.5))
+                    .scaledToFit()
+            @unknown default:
+                EmptyView()
+            }
         }
-        .frame(width: size, height: size)
+        .frame(width: width, height: height)
     }
 }
 

@@ -13,7 +13,8 @@ struct SongRowView: View {
     
     var body: some View {
         HStack {
-            ImageLoadingView(urlString: song.artworkUrl60, size: 60)
+            ImageLoadingView(urlString: song.artworkUrl60, height: 60, width: 60)
+            
             
             VStack(alignment: .leading) {
                 Text(song.trackName)
@@ -23,7 +24,7 @@ struct SongRowView: View {
             }
             .lineLimit(1)
             
-            Spacer()
+            Spacer(minLength: 20)
             
             BuyButtonView(urlString: song.collectionViewURL, price: song.trackPrice, currency: song.currency)
             }
